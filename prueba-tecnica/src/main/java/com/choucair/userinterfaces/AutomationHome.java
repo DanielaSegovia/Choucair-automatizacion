@@ -7,3 +7,5 @@ import net.thucydides.core.pages.PageObject;
 public class AutomationHome extends PageObject {
 
 }
+
+

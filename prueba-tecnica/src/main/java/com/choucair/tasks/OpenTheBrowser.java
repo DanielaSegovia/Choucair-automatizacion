@@ -14,7 +14,6 @@ public class OpenTheBrowser implements Task {
     @Step("{0} Abrir navegador en automationpractice.com")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Open.browserOn(new AutomationHome()));
-
     }
 
     public static OpenTheBrowser on(){

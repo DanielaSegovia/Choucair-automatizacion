@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions( features = {"src/test/resources/features/IniciarSesion.feature"},
-        glue = {"com.choucair.stepdefinitions"},
+        glue = {"com.choucair.stepsdefinitions"},
         snippets = SnippetType.CAMELCASE)
 
 public class AutomationTestRunner {
+
 }

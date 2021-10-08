@@ -1,70 +1,58 @@
 package com.choucair.stepsdefinitions;
 
-import com.choucair.tasks.OpenTheBrowser;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import com.choucair.tasks.*;
+import com.choucair.utils.Driver;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
 public class InicioDeSesionStepDefinitions {
+
     @Managed(driver = "chrome")
     private WebDriver browser;
     private Actor actor = Actor.named("Daniela");
 
     @Before
     public void setUp(){
+        browser = Driver.getDriver();
         actor.can(BrowseTheWeb.with(browser));
     }
 
-    @Given("que el usuario ya se registro en el sistema")
-    public void que_el_usuario_ya_se_registro_en_el_sistema() {
-        //throw new io.cucumber.java.PendingException();
+    @Given("el usuario desea iniciar sesion")
+    public void elUsuarioDeseaIniciarSesion() {
         actor.wasAbleTo(OpenTheBrowser.on());
     }
 
-    @When("desee iniciar sesion")
-    public void desee_iniciar_sesion() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("de clic sobre el botón Sign in")
+    public void deClicSobreElBotónSignIn() {
+        actor.wasAbleTo(Navegar.Login());
     }
 
-    @When("se encuentre en la pagina de autenticacion")
-    public void se_encuentre_en_la_pagina_de_autenticacion() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("ingrese el correo electronico {string}")
+    public void ingreseElCorreoElectronico(String string) {
+        actor.wasAbleTo(IngresarEmail.email());
     }
 
-    @When("ingrese el correo {string}")
-    public void ingrese_el_correo(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @When("ingrese la contrase±a {string}")
-    public void ingrese_la_contrasena(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("ingrese la contrasena {string}")
+    public void ingreseLaContrasena(String string) {
+        actor.wasAbleTo(IngresarContrasena.pass());
     }
 
     @When("de clic en el boton Sign in")
-    public void de_clic_en_el_boton_sign_in() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void deClicEnElBotonSignIn() {
+        actor.wasAbleTo(ClicSignIn.On());
     }
 
-    @When("las credenciales son validas")
-    public void las_credenciales_son_validas() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
     @Then("el inicio de sesion es exitoso")
-    public void el_inicio_de_sesion_es_exitoso() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void elInicioDeSesionEsExitoso() {
+        actor.wasAbleTo(IngresoExitoso.exitoso());
+
     }
+
 }
