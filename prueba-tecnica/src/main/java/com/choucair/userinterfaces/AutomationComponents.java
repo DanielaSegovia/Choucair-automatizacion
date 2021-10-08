@@ -10,5 +10,5 @@ public class AutomationComponents {
     public static final Target EMAIL = Target.the("Ingresar email").located(By.id("email"));
     public static final Target PASSWORD = Target.the("Ingresar contreña").located(By.id("passwd"));
     public static final Target BTN_SIGN_IN = Target.the("Dar clic en botón Sign In").located(By.id("SubmitLogin"));
-    public static final By EXITO = By.className("account");
+    public static final Target EXITO = Target.the("Ingreso exitoso").locatedBy("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span");
 }
